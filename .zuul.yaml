@@ -1,4 +1,4 @@
 - project:
     check:
       jobs:
-        - calculator
+        - Calculator_web_application_master
