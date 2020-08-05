@@ -1,10 +1,11 @@
 - job:
     name: Calculator
     run: zuul-test/Calculator.yaml
-    
-    
 - project:
     check:
+      jobs:
+        - Calculator
+    gate:
       jobs:
         - Calculator
         
