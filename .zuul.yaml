@@ -1,8 +1,8 @@
 - job:
-   - name: Calculator
-     run: zuul-test/Calculator.yaml
-   - name: testjob
-     run: zuul-test/testjob.yaml
+    name: Calculator
+    run: zuul-test/Calculator.yaml
+    name: testjob
+    run: zuul-test/testjob.yaml
 - project:
     check:
       jobs:
