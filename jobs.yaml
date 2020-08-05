@@ -4,6 +4,6 @@
     # branches makes this job run only for master PR
     branch: master
     node: 'ubuntu-bionic'
-#     required-projects:
-      # without options, the branch of the PR is used for the required-projects
-#       - name: github.com/pratikshap3/Calculator_web_application/blob/master/Calculator.py
+    required-projects:
+      without options, the branch of the PR is used for the required-projects
+      - name: github.com/pratikshap3/Calculator_web_application/blob/master/Calculator.py
