@@ -1,10 +1,15 @@
 - job:
     name: Calculator
     run: zuul-test/Calculator.yaml
+- job:
+    name: testjob
+    run: zuul-test/test1/playbooks/testjob.yaml
 - project:
     check:
       jobs:
         - Calculator
+        - testjob
     gate:
       jobs:
-        - Calculator       
+        - Calculator 
+        - testjob
