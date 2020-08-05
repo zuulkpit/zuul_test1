@@ -6,4 +6,4 @@
     node: 'ubuntu-bionic'
     required-projects:
       without options, the branch of the PR is used for the required-projects
-      - name: github.com/pratikshap3/Calculator_web_application
+      - name: pratikshap3/Calculator_web_application
