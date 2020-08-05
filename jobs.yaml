@@ -1,9 +1,9 @@
 - job:
-    name: 'calculator'
+    name: 'Calculator'
     parent: base
     # branches makes this job run only for master PR
     branch: master
     node: 'ubuntu-bionic'
     required-projects:
       without options, the branch of the PR is used for the required-projects
-      - name: pratikshap3/Calculator_web_application
+      - name: ashish1211/Calculator
