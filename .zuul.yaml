@@ -3,7 +3,7 @@
     run: zuul-test/Calculator.yaml
 - job:
     name: testjob
-    run: zuul-test/test1/playbooks/testjob.yaml
+    run: zuul-test/testjob.yaml
 - project:
     check:
       jobs:
