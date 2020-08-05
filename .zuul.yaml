@@ -2,4 +2,4 @@
     check:
       jobs:
         - noop
-        - Calculator_web_application_master
+        - calculator
