@@ -2,5 +2,5 @@
     name: 'zuul-test-config'
     check:
       jobs:
-        - calculator
+        - Calculator
         
