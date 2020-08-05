@@ -1,5 +1,5 @@
 - job:
-    name: 'Calculator'
+    name: 'calculator'
     parent: base
     # branches makes this job run only for master PR
     branch: master
