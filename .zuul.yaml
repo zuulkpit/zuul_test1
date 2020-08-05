@@ -7,7 +7,4 @@
       jobs:
         - Calculator
         
-    gate:
-      jobs:
-        - Calculator 
-        
+   
