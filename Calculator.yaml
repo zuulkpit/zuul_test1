@@ -5,4 +5,4 @@
     node: 'ubuntu-bionic'
     required-projects:
       without options, the branch of the PR is used for the required-projects
-      - name: zuul-test/Calculator
+      - name: https://github.com/ashish1211/zuul-test/tree/master/Calculator
