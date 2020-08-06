@@ -9,8 +9,8 @@
     check:
       jobs:
         - testjob
-        - Calculator
+        - Calculator-master
     gate:
       jobs:
         - testjob
-        - Calculator
+        - Calculator-master
