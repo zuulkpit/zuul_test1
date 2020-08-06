@@ -1,6 +1,0 @@
-- project:
-    name: 'zuul-test-config'
-    check:
-      jobs:
-        - Calculator
-        
