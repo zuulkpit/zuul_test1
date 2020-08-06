@@ -1,6 +1,6 @@
 - job:
     name: testjob
-    run: playbooks/testjob.yaml
+    run: zuul-test/testjob.yaml
 
 - project:
     check:
