@@ -1,6 +1,6 @@
 - job:
-    name: 'Calculator'
-    parent: base
+    name: Calculator
+    parent: zuul-test
     # branches makes this job run only for master PR
     branch: master
     node: 'ubuntu-bionic'
