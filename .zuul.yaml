@@ -41,7 +41,10 @@
         - noop
         - testjob
         - Calculator-master
-
+    gate:
+      jobs:
+        - Calculator-master
+   
 - job:
     name: base1
     parent: null
