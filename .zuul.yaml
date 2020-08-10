@@ -96,7 +96,7 @@
       jobs:
         - noop
         - testjob
-        - Calculator-master
+        
     gate:
       jobs:
         - Calculator-master
