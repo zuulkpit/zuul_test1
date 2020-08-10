@@ -44,3 +44,17 @@
     name: base1
     parent: null
     pre-run: base-playbook.yaml
+
+- job:
+    name: Calculator-master
+    run: Calculator.yaml
+
+- job:
+    name: testjob
+    run: testjob.yaml
+
+- project:
+    check:
+      jobs:
+        - testjob
+        - Calculator-master
