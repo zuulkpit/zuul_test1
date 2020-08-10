@@ -39,11 +39,13 @@
     check:
       jobs:
         - noop
+        - testjob
+        - Calculator-master
 
 - job:
     name: base1
     parent: null
-    pre-run: base-playbook.yaml
+    run: base-playbook.yaml
 
 - job:
     name: Calculator-master
@@ -52,9 +54,3 @@
 - job:
     name: testjob
     run: testjob.yaml
-
-- project:
-    check:
-      jobs:
-        - testjob
-        - Calculator-master
