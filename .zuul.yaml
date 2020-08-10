@@ -1,0 +1,46 @@
+- pipeline:
+    name: check
+    post-review: true
+    manager: independent
+    trigger:
+      github:
+        - event: pull_request
+          action:
+            - opened
+            - changed
+        - event: pull_request
+          action:
+            - comment
+          comment:
+            - '^recheck.*$'
+    success:
+      github:
+        comment: true
+        status: success
+    failure:
+      github:
+        comment: true
+        status: failure
+    merge-failure:
+      github:
+        comment: true
+        status: failure
+    start:
+      github:
+        comment: true
+        status: pending
+    disabled:
+      github:
+        comment: true
+
+
+- project:
+    name: ashish1211/zuul-test-1
+    check:
+      jobs:
+        - noop
+
+- job:
+    name: base1
+    parent: null
+    pre-run: base-playbook.yaml
