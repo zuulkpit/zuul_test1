@@ -35,7 +35,7 @@
 
 
 - project:
-    name: ashish1211/zuul-test-1
+    name: ashish1211/zuul-test
     check:
       jobs:
         - noop
