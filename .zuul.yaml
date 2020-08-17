@@ -32,6 +32,7 @@
     disabled:
       github:
         comment: true
+        
 - pipeline:
     name: gate
     description: |
@@ -91,7 +92,7 @@
     window-increase-factor: 2 
 
 - project:
-    name: ashish1211/zuul-test
+    name: zuulkpit/zuul-test
     check:
       jobs:
         - noop
