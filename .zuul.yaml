@@ -17,7 +17,7 @@
     start:
       github:
         status: 'pending'
-        status-url: "https://github.com/zuulkpit/hello-zuul" 
+        status-url: "https://zuul.zuul-ci.org/zuul/status.html"
         comment: false
     success:
       github:
@@ -71,7 +71,7 @@
     start:
       github:
         status: 'pending'
-        status-url: "https://github.com/zuulkpit/hello-zuul" 
+        status-url: "https://zuul.zuul-ci.org/zuul/status.html"
         comment: false
     success:
       github:
@@ -116,4 +116,5 @@
       sqlreporter:
     failure:
       sqlreporter:
+
 
