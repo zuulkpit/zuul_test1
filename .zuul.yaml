@@ -125,7 +125,7 @@
 
 - pipeline:
     name: tag
-    description:|
+    description: |
         This pipeline runs jobs in response to any tag event.
     manager: independent
     precedence: high
