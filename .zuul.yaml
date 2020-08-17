@@ -6,7 +6,7 @@
       initial check status.
     success-message: "Build Successful"
     failure-message: "Build Failure"
-    start-message:" Starting {pipeline.name} jobs."
+    start-message: "Starting {pipeline.name} jobs."
     no-jobs-message: "No Jobs"
     manager: independent
     trigger:
