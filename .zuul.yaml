@@ -1,8 +1,13 @@
+
 - pipeline: 
     name: check
     description: |
       Newly uploaded patchsets enter this pipeline to receive an
       initial check status.
+    success-message: "Build Successful"
+    failure-message: "Build Failure"
+    start-message:" Starting {pipeline.name} jobs."
+    no-jobs-message: "No Jobs"
     manager: independent
     trigger:
       github:
@@ -99,7 +104,8 @@
 - pipeline:
     name: post
     post-review: true
-    description: This pipeline runs jobs that operate after each change is merged.
+    description: |
+        This pipeline runs jobs that operate after each change is merged.
     manager: independent
     precedence: low
     trigger:
@@ -119,10 +125,11 @@
 
 - pipeline:
     name: tag
-    description: This pipeline runs jobs in response to any tag event.
+    description:|
+        This pipeline runs jobs in response to any tag event.
     manager: independent
     precedence: high
-    post-review: True
+    post-review: true
     trigger:
       github:
         - event: push
@@ -137,4 +144,3 @@
       github:
         status: 'failure'
         comment: true
-
