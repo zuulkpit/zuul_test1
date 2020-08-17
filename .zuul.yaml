@@ -6,14 +6,23 @@
     manager: independent
     trigger:
       github:
-        - event: pull_request
-          action:
-            - opened
-            - changed
-            - reopened
+        - event: pull_request_review
+          action: submitted
+          state: approved
         - event: pull_request
           action: comment
-          comment: (?i)^\s*recheck\s*$
+          comment: (?i)^\s*regate\s*$
+        - event: pull_request_review
+          action: submitted
+          state: approved
+        - event: pull_request_review
+          action: dismissed
+          state: request_changes
+        - event: pull_request
+          action: status
+          status: ".*:success"
+        - event: pull_request
+          action: labeled
     start:
       github:
         status: 'pending'
@@ -22,6 +31,7 @@
     success:
       github:
         status: 'success'
+      
     failure:
       github:
         status: 'failure'
@@ -77,6 +87,7 @@
         status: 'success'
         merge: true
         comment: true
+      
     failure:
       github:
         status: 'failure'
@@ -100,6 +111,7 @@
         status: 'success'
         merge: true
         comment: true
+        
     failure:
       github:
         status: 'failure'
@@ -120,6 +132,7 @@
         status: 'success'
         merge: true
         comment: true
+        
     failure:
       github:
         status: 'failure'
