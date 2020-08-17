@@ -1,9 +1,8 @@
 - job:
-    name: Calculator
-    parent: zuul-test
+    name: Calculator-master
     # branches makes this job run only for master PR
     branch: master
     node: 'ubuntu-bionic'
     required-projects:
       without options, the branch of the PR is used for the required-projects
-      - name: ashish1211/Calculator
+      - name: https://github.com/ashish1211/zuul-test/tree/master/Calculator
