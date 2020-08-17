@@ -1,6 +1,8 @@
 - pipeline:
-    name: check
-    post-review: true
+       name: check
+    description: |
+      Newly uploaded patchsets enter this pipeline to receive an
+      initial check status.
     manager: independent
     trigger:
       github:
@@ -8,31 +10,24 @@
           action:
             - opened
             - changed
+            - reopened
         - event: pull_request
-          action:
-            - comment
-          comment:
-            - '^recheck.*$'
-    success:
-      github:
-        comment: true
-        status: success
-    failure:
-      github:
-        comment: true
-        status: failure
-    merge-failure:
-      github:
-        comment: true
-        status: failure
+          action: comment
+          comment: (?i)^\s*recheck\s*$
     start:
       github:
-        comment: true
-        status: pending
-    disabled:
+        status: 'pending'
+        status-url: "https://github.com/zuulkpit/hello-zuul" 
+        comment: false
+    success:
       github:
-        comment: true
-        
+        status: 'success'
+      sqlreporter:
+    failure:
+      github:
+        status: 'failure'
+      sqlreporter:
+
 - pipeline:
     name: gate
     description: |
@@ -71,46 +66,54 @@
           status: ".*:success"
         - event: pull_request
           action: labeled
-          label: gate
+          label:
+            - gate
     start:
       github:
         status: 'pending'
-        status-url: "http://localhost:9000/t/quickstart/status"
+        status-url: "https://github.com/zuulkpit/hello-zuul" 
         comment: false
     success:
       github:
         status: 'success'
         merge: true
         comment: true
-      
+      sqlreporter:
     failure:
       github:
         status: 'failure'
         comment: true
-      
+      sqlreporter:
     window-floor: 20
-    window-increase-factor: 2 
+    window-increase-factor: 2
 
-- project:
-    name: zuulkpit/zuul-test
-    check:
-      jobs:
-        - noop
-        - testjob
-        
-    gate:
-      jobs:
-        - Calculator-master
-   
-- job:
-    name: base1
-    parent: null
-    run: base-playbook.yaml
+- pipeline:
+    name: post
+    post-review: true
+    description: This pipeline runs jobs that operate after each change is merged.
+    manager: independent
+    precedence: low
+    trigger:
+      github:
+        - event: push
+          ref: ^refs/heads/.*$
+    success:
+      sqlreporter:
+    failure:
+      sqlreporter:
 
-- job:
-    name: Calculator-master
-    run: Calculator.yaml
+- pipeline:
+    name: tag
+    description: This pipeline runs jobs in response to any tag event.
+    manager: independent
+    precedence: high
+    post-review: True
+    trigger:
+      github:
+        - event: push
+          ref: ^refs/tags/.*$
+    success:
+      sqlreporter:
+    failure:
+      sqlreporter:
 
-- job:
-    name: testjob
-    run: testjob.yaml
