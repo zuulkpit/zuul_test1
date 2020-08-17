@@ -1,5 +1,5 @@
-- pipeline:
-       name: check
+- pipeline: 
+    name: check
     description: |
       Newly uploaded patchsets enter this pipeline to receive an
       initial check status.
@@ -116,5 +116,4 @@
       sqlreporter:
     failure:
       sqlreporter:
-
 
