@@ -22,7 +22,6 @@
     success:
       github:
         status: 'success'
-      
     failure:
       github:
         status: 'failure'
@@ -78,7 +77,6 @@
         status: 'success'
         merge: true
         comment: true
-      
     failure:
       github:
         status: 'failure'
@@ -102,7 +100,6 @@
         status: 'success'
         merge: true
         comment: true
-        
     failure:
       github:
         status: 'failure'
@@ -123,7 +120,6 @@
         status: 'success'
         merge: true
         comment: true
-        
     failure:
       github:
         status: 'failure'
